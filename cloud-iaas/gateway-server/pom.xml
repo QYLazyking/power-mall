@@ -18,6 +18,11 @@
     </properties>
 
     <dependencies>
+        <!-- common base 公共基础模块 -->
+        <dependency>
+            <groupId>cn.lazyking</groupId>
+            <artifactId>common-base</artifactId>
+        </dependency>
 
         <!-- nacos 注册中心 -->
         <dependency>

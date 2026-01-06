@@ -35,4 +35,9 @@ spring:
 #    redis:
 #      host: localhost
 #      port: 6379
+#gateway:
+#  auth-path:
+#    allow-urls:
+#      - /doLogin
+#      - /free
 

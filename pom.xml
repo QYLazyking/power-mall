@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.8</version>
+        <version>3.2.12</version>
     </parent>
 
     <groupId>cn.lazyking</groupId>
@@ -38,13 +38,6 @@
 
     <packaging>pom</packaging>
 
-    <dependencies>
-        <!-- 专门读取bootstrap.yml/.properties配置文件-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
-    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -74,7 +67,7 @@
             <!-- mybatis plus 依赖-->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <!-- mybatis plus annotation 依赖-->

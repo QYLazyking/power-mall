@@ -1,6 +1,9 @@
 spring:
   application:
     name: auth-server
+  config:
+    import[0]: nacos:auth-server-dev.yml
+    import[1]: nacos:application-dev.yml
   cloud:
     nacos:
       server-addr: localhost:8848

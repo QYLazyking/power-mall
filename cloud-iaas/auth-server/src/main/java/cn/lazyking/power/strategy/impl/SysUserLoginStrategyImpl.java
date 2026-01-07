@@ -34,6 +34,7 @@ public class SysUserLoginStrategyImpl implements LoginStrategy {
             // 创建安全用户对象
             SecurityUser securityUser = new SecurityUser();
             securityUser.setUserId(loginSysUser.getUserId());
+            securityUser.setUsername(loginSysUser.getUsername()); // 设置用户名
             securityUser.setPassword(loginSysUser.getPassword());
             securityUser.setStatus(loginSysUser.getStatus());
             securityUser.setShopId(loginSysUser.getShopId());

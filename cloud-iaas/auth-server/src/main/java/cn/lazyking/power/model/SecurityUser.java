@@ -42,32 +42,33 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public String getPassword() {
-        return "";
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return "";
+        return this.loginType + this.userId;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true; // 账户未过期
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true; // 账户未锁定
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true; // 凭据未过期
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        // 根据 status 字段判断账户是否启用，假设 1 表示启用，0 表示禁用
+        return this.status != null && this.status == 1;
     }
 
 }

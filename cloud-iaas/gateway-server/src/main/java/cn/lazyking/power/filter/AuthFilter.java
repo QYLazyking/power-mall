@@ -29,6 +29,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
     private final AuthPathConfig authPathConfig;
     private final StringRedisTemplate redisTemplate;
+    private final ObjectMapper objectMapper;
 
     @Override
     public int getOrder() {
@@ -73,7 +74,6 @@ public class AuthFilter implements GlobalFilter, Ordered {
         response.getHeaders().set(HttpConstants.CONTENT_TYPE, HttpConstants.CONTENT_TYPE_JSON);
         // 设置响应体
         Result<Object> result = Result.fail(BusinessStatus.UNAUTHORIZED);
-        ObjectMapper objectMapper = new ObjectMapper();
         byte[] resultBytes;
         try {
             resultBytes = objectMapper.writeValueAsBytes(result);

@@ -25,10 +25,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <common-base.version>1.0-SNAPSHOT</common-base.version>
+        <common-core.version>1.0-SNAPSHOT</common-core.version>
 
         <spring-cloud.version>2023.0.4</spring-cloud.version>
         <spring-cloud-alibaba.version>2023.0.1.2</spring-cloud-alibaba.version>
-        <mybatis-plus.version>3.5.15</mybatis-plus.version>
+        <mybatis-plus.version>3.5.9</mybatis-plus.version>
         <mybatis-plus-annotation.version>3.5.15</mybatis-plus-annotation.version>
         <mysql.version>8.4.0</mysql.version>
         <druid.version>1.2.27</druid.version>
@@ -41,11 +42,17 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- common base 公共基础模块-->
+            <!-- common base 公共基础模块 -->
             <dependency>
                 <groupId>cn.lazyking</groupId>
                 <artifactId>common-base</artifactId>
                 <version>${common-base.version}</version>
+            </dependency>
+            <!-- common core 公共核心模块 -->
+            <dependency>
+                <groupId>cn.lazyking</groupId>
+                <artifactId>common-core</artifactId>
+                <version>${common-core.version}</version>
             </dependency>
 
             <!-- spring cloud 依赖-->
@@ -67,14 +74,10 @@
             <!-- mybatis plus 依赖-->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <artifactId>mybatis-plus-bom</artifactId>
                 <version>${mybatis-plus.version}</version>
-            </dependency>
-            <!-- mybatis plus annotation 依赖-->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-annotation</artifactId>
-                <version>${mybatis-plus-annotation.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!-- mysql 依赖-->
             <dependency>

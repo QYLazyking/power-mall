@@ -1,4 +1,4 @@
-package cn.lazyking.power.model;
+package cn.lazyking.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -6,6 +6,7 @@ import lombok.Getter;
 public enum BusinessStatus {
     OPERATION_FAIL(-1, "操作失败"),
     SERVER_INNER_ERROR(9999, "服务器内部错误"),
+    ACCESS_DENIED(403, "权限不足"),
     UNAUTHORIZED(401, "未授权"),
     ;
 

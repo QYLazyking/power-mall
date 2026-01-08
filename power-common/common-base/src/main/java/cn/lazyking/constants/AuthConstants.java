@@ -48,4 +48,9 @@ public class AuthConstants {
      * TOKEN 有效市场
      */
     public static final long TOKEN_TIME = 14400L;
+
+    /**
+     * TOKEN 刷新阈值
+     */
+    public static final long TOKEN_THRESHOLD = 3600L;
 }

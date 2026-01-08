@@ -26,6 +26,9 @@ public class Result<T> {
         return new Result<>(200, "success", data);
     }
 
+    public static <T> Result<T> fail(int code, String msg) {
+        return new Result<>(code, msg, null);
+    }
     public static<T> Result<T> fail(BusinessStatus businessStatus) {
         return new Result<>(businessStatus.getCode(), businessStatus.getMsg(), null);
     }

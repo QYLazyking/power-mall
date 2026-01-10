@@ -1,6 +1,6 @@
 package cn.lazyking.power.impl;
 
-import cn.lazyking.constants.AuthConstants;
+import cn.lazyking.power.constants.AuthConstants;
 import cn.lazyking.power.factory.LoginStrategyFactory;
 import cn.lazyking.power.strategy.LoginStrategy;
 import jakarta.servlet.http.HttpServletRequest;

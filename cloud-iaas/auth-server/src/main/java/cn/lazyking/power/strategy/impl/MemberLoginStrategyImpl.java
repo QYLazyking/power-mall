@@ -1,6 +1,6 @@
 package cn.lazyking.power.strategy.impl;
 
-import cn.lazyking.constants.AuthConstants;
+import cn.lazyking.power.constants.AuthConstants;
 import cn.lazyking.power.strategy.LoginStrategy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;

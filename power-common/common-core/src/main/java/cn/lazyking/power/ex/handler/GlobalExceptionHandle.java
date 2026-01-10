@@ -1,7 +1,7 @@
 package cn.lazyking.power.ex.handler;
 
-import cn.lazyking.constants.BusinessStatus;
-import cn.lazyking.model.Result;
+import cn.lazyking.power.constants.BusinessStatus;
+import cn.lazyking.power.model.Result;
 import cn.lazyking.power.ex.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;

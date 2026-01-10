@@ -1,8 +1,8 @@
 package cn.lazyking.power.strategy.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.lazyking.constants.AuthConstants;
-import cn.lazyking.model.SecurityUser;
+import cn.lazyking.power.constants.AuthConstants;
+import cn.lazyking.power.model.SecurityUser;
 import cn.lazyking.power.domain.LoginSysUser;
 import cn.lazyking.power.mapper.LoginSysUserMapper;
 import cn.lazyking.power.strategy.LoginStrategy;

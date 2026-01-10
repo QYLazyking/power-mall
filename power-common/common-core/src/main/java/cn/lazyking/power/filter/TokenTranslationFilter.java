@@ -1,7 +1,7 @@
 package cn.lazyking.power.filter;
 
-import cn.lazyking.constants.AuthConstants;
-import cn.lazyking.model.SecurityUser;
+import cn.lazyking.power.constants.AuthConstants;
+import cn.lazyking.power.model.SecurityUser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

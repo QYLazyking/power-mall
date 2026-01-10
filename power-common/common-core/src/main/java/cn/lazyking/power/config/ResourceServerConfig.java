@@ -1,8 +1,8 @@
 package cn.lazyking.power.config;
 
-import cn.lazyking.constants.BusinessStatus;
-import cn.lazyking.constants.HttpConstants;
-import cn.lazyking.model.Result;
+import cn.lazyking.power.constants.BusinessStatus;
+import cn.lazyking.power.constants.HttpConstants;
+import cn.lazyking.power.model.Result;
 import cn.lazyking.power.constants.ResourceConstants;
 import cn.lazyking.power.filter.TokenTranslationFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;

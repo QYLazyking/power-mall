@@ -1,0 +1,13 @@
+package cn.lazyking.power.constants;
+
+public class HttpConstants {
+    // Content-Type
+    public static final String CONTENT_TYPE = "Content-Type";
+
+    // application/json;charaset=utf-8
+    public static final String CONTENT_TYPE_JSON = "application/json;charset=utf-8";
+
+    // UTF-8
+    public static final String UTF_8 = "utf-8";
+
+}

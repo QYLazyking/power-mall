@@ -1,6 +1,6 @@
 package cn.lazyking.power.config;
 
-import cn.lazyking.constants.AuthConstants;
+import cn.lazyking.power.constants.AuthConstants;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import jakarta.servlet.http.HttpServletRequest;

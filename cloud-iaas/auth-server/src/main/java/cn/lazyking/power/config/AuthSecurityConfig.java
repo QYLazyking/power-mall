@@ -1,9 +1,9 @@
 package cn.lazyking.power.config;
 
-import cn.lazyking.constants.AuthConstants;
-import cn.lazyking.constants.BusinessStatus;
-import cn.lazyking.constants.HttpConstants;
-import cn.lazyking.model.Result;
+import cn.lazyking.power.constants.AuthConstants;
+import cn.lazyking.power.constants.BusinessStatus;
+import cn.lazyking.power.constants.HttpConstants;
+import cn.lazyking.power.model.Result;
 import cn.lazyking.power.model.LoginResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -28,8 +28,8 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 import java.time.Duration;
 import java.util.UUID;
 
-import static cn.lazyking.constants.AuthConstants.LOGIN_URL;
-import static cn.lazyking.constants.AuthConstants.LOGOUT_URL;
+import static cn.lazyking.power.constants.AuthConstants.LOGIN_URL;
+import static cn.lazyking.power.constants.AuthConstants.LOGOUT_URL;
 
 /**
  * Security 框架配置类

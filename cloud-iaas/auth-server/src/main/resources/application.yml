@@ -2,7 +2,7 @@ spring:
   application:
     name: auth-server
   config:
-    import[0]: nacos:auth-server-dev.yml
+    import[0]: nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
     import[1]: nacos:application-dev.yml
   cloud:
     nacos:

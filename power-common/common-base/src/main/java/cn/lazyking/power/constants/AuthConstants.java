@@ -12,7 +12,7 @@ public class AuthConstants {
     /**
      * Bearer token 前缀
      */
-    public static final String BEARER = "Bearer ";
+    public static final String BEARER = "bearer ";
     
     /**
      * 认证 token 在缓存中的前缀

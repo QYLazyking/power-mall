@@ -17,4 +17,13 @@
     <!--@mbg.generated-->
     menu_id, parent_id, `name`, url, perms, `type`, icon, order_num
   </sql>
+
+  <select id="queryMenuListByUserId" resultMap="BaseResultMap">
+    select m.*
+    FROM sys_menu m
+           join sys_role_menu rm
+           join sys_user_role ur on (m.menu_id = rm.menu_id and rm.role_id = ur.role_id)
+    where ur.user_id = #{userId}
+      and (m.type = 0 or m.type = 1);
+  </select>
 </mapper>

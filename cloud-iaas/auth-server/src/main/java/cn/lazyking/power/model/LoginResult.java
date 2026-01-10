@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class LoginResult {
 
     @ApiModelProperty("令牌")
-    private String token;
+    private String accessToken;
 
     @ApiModelProperty("令牌过期时间")
     private Long expireIn;

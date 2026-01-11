@@ -14,6 +14,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 系统管理员控制层
  */
@@ -73,6 +75,22 @@ public class SysUserController {
     public Result<SysUser> loadSysUserDetail(@PathVariable Long userId) {
         SysUser sysUser = sysUserService.getSysUserByUserId(userId);
         return Result.ok(sysUser);
+    }
+
+    @ApiOperation("修改管理员信息")
+    @PutMapping
+    @PreAuthorize("hasAuthority('sys:user:update')")
+    public Result<Object> modifySysUser(@RequestBody SysUser sysUser) {
+        int count = sysUserService.modifySysUser(sysUser);
+        return count > 0 ? Result.ok(null) : Result.fail(BusinessStatus.OPERATION_FAIL);
+    }
+
+    @ApiOperation("删除管理员")
+    @DeleteMapping("{userIds}")
+    @PreAuthorize("hasAuthority('sys:user:delete')")
+    public Result<Object> deleteSysUser(@PathVariable List<Long> userIds) {
+        int count = sysUserService.removeSysUserByUserIds(userIds);
+        return count == userIds.size() ? Result.ok(null) : Result.fail(BusinessStatus.OPERATION_FAIL);
     }
 
 }

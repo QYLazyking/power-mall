@@ -1,9 +1,6 @@
 package cn.lazyking.power.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -41,7 +38,7 @@ public class SysUser implements Serializable {
     /**
      * 密码
      */
-    @TableField(value = "`password`")
+    @TableField(value = "`password`", updateStrategy = FieldStrategy.NOT_EMPTY)
     @ApiModelProperty(value="密码")
     private String password;
 

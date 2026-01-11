@@ -5,4 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface SysUserService extends IService<SysUser>{
 
 
+    Integer addSysUser(SysUser sysUser);
+
+    SysUser getSysUserByUserId(Long userId);
 }

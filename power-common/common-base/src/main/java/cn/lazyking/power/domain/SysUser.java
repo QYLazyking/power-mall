@@ -6,13 +6,14 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.List;
 
 /**
  * 系统用户
@@ -85,4 +86,8 @@ public class SysUser implements Serializable {
     @TableField(value = "shop_id")
     @ApiModelProperty(value="用户所在的商城Id")
     private Long shopId;
+
+    @TableField(exist = false)
+    @ApiModelProperty(value="用户角色列表")
+    private List<Long> roleIdList;
 }

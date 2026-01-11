@@ -1,5 +1,6 @@
 package cn.lazyking.power.controller;
 
+import cn.lazyking.power.constants.BusinessStatus;
 import cn.lazyking.power.domain.SysUser;
 import cn.lazyking.power.model.Result;
 import cn.lazyking.power.service.impl.SysUserService;
@@ -11,10 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 系统管理员控制层
@@ -59,6 +57,22 @@ public class SysUserController {
         ).orderByDesc(SysUser::getCreateTime);
         page = sysUserService.page(page, queryWrapper);
         return Result.ok(page);
+    }
+
+    @ApiOperation("新增管理员")
+    @PostMapping
+    @PreAuthorize("hasAuthority('sys:user:save')")
+    public Result<Object> saveSysUser(@RequestBody SysUser sysUser) {
+        Integer count = sysUserService.addSysUser(sysUser);
+        return count > 0 ? Result.ok(null) : Result.fail(BusinessStatus.OPERATION_FAIL);
+    }
+
+    @ApiOperation("查询管理员详情")
+    @GetMapping("info/{userId}")
+    @PreAuthorize("hasAuthority('sys:user:info')")
+    public Result<SysUser> loadSysUserDetail(@PathVariable Long userId) {
+        SysUser sysUser = sysUserService.getSysUserByUserId(userId);
+        return Result.ok(sysUser);
     }
 
 }

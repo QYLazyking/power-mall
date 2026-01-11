@@ -31,7 +31,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
                 .filter(menu -> menu.getParentId() == pid)
                 .toList();
 
-        roots.forEach(root -> root.setChildren(transformTree(menus, root.getMenuId())));
+        roots.forEach(root -> root.setList(transformTree(menus, root.getMenuId())));
         return roots;
     }
 }

@@ -81,5 +81,5 @@ public class SysMenu implements Serializable {
 
     @TableField(exist = false)
     @ApiModelProperty(value="子菜单")
-    private List<SysMenu> children;
+    private List<SysMenu> list;
 }

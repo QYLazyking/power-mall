@@ -18,9 +18,9 @@ import java.util.Set;
 @ApiModel("菜单和操作权限对象")
 @Builder
 public class MenuAndAuth {
-    @ApiModelProperty("菜单权限集合")
-    private Set<String> menus;
-
     @ApiModelProperty("操作权限集合")
-    private List<SysMenu> authorities;
+    private Set<String> authorities;
+
+    @ApiModelProperty("菜单权限集合")
+    private List<SysMenu> menuList;
 }

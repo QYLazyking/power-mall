@@ -26,6 +26,12 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         return transformTree(menus, 0);
     }
 
+    @Cacheable(key = "'all:menus'")
+    @Override
+    public List<SysMenu> getAllSysMenuList() {
+        return sysMenuMapper.selectList(null);
+    }
+
     private List<SysMenu> transformTree(Set<SysMenu> menus, long pid) {
         List<SysMenu> roots = menus.stream()
                 .filter(menu -> menu.getParentId() == pid)

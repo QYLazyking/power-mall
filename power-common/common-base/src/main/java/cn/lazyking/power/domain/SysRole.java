@@ -6,13 +6,14 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.List;
 
 /**
  * 角色
@@ -57,4 +58,8 @@ public class SysRole implements Serializable {
     @TableField(value = "create_time")
     @ApiModelProperty(value="创建时间")
     private Date createTime;
+
+    @TableField(exist = false)
+    @ApiModelProperty("权限 id 集合")
+    private List<Long> menuIdList;
 }

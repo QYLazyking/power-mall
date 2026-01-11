@@ -10,4 +10,11 @@ public interface SysRoleService extends IService<SysRole>{
 
     List<SysRole> getSysRoleList();
 
+    boolean addSysRole(SysRole sysRole);
+
+    SysRole getSysRoleDetailById(Long roleId);
+
+    boolean modifySysRole(SysRole sysRole);
+
+    boolean removeSysRolesByIds(List<Long> roleIds);
 }

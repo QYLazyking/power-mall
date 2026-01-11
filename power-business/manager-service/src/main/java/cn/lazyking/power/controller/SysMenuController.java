@@ -9,6 +9,7 @@ import cn.lazyking.power.vo.MenuAndAuth;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +40,15 @@ public class SysMenuController {
         // 构建 MenuAndAuth 对象
         MenuAndAuth menuAndAuth = new MenuAndAuth(perms, menus);
         return Result.ok(menuAndAuth);
+    }
+
+
+    @ApiOperation("查询系统所有权限集合")
+    @GetMapping("table")
+    @PreAuthorize("hasAuthority('sys:menu:list')")
+    public Result<List<SysMenu>> loadSysMenuTable() {
+        List<SysMenu> menus = sysMenuService.getAllSysMenuList();
+        return Result.ok(menus);
     }
 
 }

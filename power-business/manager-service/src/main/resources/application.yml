@@ -36,3 +36,8 @@ spring:
 #  license: "swagger3.license"
 #  license-url: "swagger3.license-url"
 #  version: 1.0
+#oss:
+#  endpoint: https://oss-cn-hangzhou.aliyuncs.com
+#  bucket-name: <YOUR_BUCKET_NAME>
+#  access-key-id: <YOUR_ACCESS_KEY_ID>
+#  access-key-secrct: <YOUR_ACCESS_KEY_SECRCT>

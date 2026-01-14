@@ -3,7 +3,6 @@ package cn.lazyking.power.controller;
 
 import cn.hutool.core.date.DateUtil;
 import cn.lazyking.power.config.OSSConfig;
-import cn.lazyking.power.model.Result;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.model.PutObjectRequest;
 import io.swagger.annotations.Api;
@@ -32,7 +31,7 @@ public class FileUploadController {
 
     @ApiOperation("上传单个文件")
     @PostMapping("upload/element")
-    public Result<String> uploadFile(MultipartFile file) {
+    public String uploadFile(MultipartFile file) {
         // 创建以天为单位的文件夹名称
         String folderName = DateUtil.format(DateUtil.date(), "yyyy-MM-dd");
         // 以时间戳作为存储后的文件名
@@ -65,6 +64,6 @@ public class FileUploadController {
             throw new RuntimeException(e);
         }
         // 注意：不要在这里关闭 ossClient，因为它是 Spring 管理的单例 Bean
-        return Result.ok(url.toString());
+        return url.toString();
     }
 }

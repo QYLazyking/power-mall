@@ -5,4 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface ProdTagService extends IService<ProdTag>{
 
 
+    boolean saveProdTag(ProdTag prodTag);
+
+    ProdTag getProdTagDetailById(Long prodTagId);
 }

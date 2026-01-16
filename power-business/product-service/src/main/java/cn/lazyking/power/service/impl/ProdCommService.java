@@ -5,4 +5,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface ProdCommService extends IService<ProdComm>{
 
 
+    boolean examineOrReplyProdComm(ProdComm prodComm);
 }

@@ -6,14 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.List;
 
 /**
  * 商品
@@ -30,7 +31,7 @@ public class Prod implements Serializable {
     /**
      * 产品ID
      */
-    @TableId(value = "prod_id", type = IdType.INPUT)
+    @TableId(value = "prod_id", type = IdType.AUTO)
     @ApiModelProperty(value="产品ID")
     private Long prodId;
 
@@ -159,4 +160,30 @@ public class Prod implements Serializable {
     @TableField(value = "version")
     @ApiModelProperty(value="版本 乐观锁")
     private Integer version;
+
+    @TableField(exist = false)
+    @ApiModelProperty("商品分组标签id集合")
+    private List<Long> tagList;
+
+    @TableField(exist = false)
+    @ApiModelProperty("商品sku对象集合")
+    private List<Sku> skuList;
+
+    @TableField(exist = false)
+    @ApiModelProperty("配送方式对象")
+    private DeliveryModeVo deliveryModeVo;
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class DeliveryModeVo {
+
+        @ApiModelProperty("商品配送")
+        private Boolean hasShopDelivery;
+
+        @ApiModelProperty("用户自提")
+        private Boolean hasUserPickUp;
+
+    }
+
 }

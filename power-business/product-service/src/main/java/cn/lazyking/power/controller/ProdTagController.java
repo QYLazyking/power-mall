@@ -14,6 +14,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Api(tags = "商品分组标签接口管理")
 @RestController
@@ -77,6 +78,17 @@ public class ProdTagController {
     public Result<String> removeProdTag(@PathVariable Long tagId) {
         boolean flag = prodTagService.removeById(tagId);
         return flag ? Result.ok(null) : Result.fail(BusinessStatus.OPERATION_FAIL);
+    }
+
+    @ApiOperation("查询商品分组标签集合")
+    @GetMapping("listTagList")
+    @PreAuthorize("hasAuthority('prod:prodTag:page')")
+    public Result<List<ProdTag>> loadProdTagList() {
+        List<ProdTag> list = prodTagService.list(new LambdaQueryWrapper<ProdTag>()
+                .eq(ProdTag::getStatus, 1)
+                .orderByDesc(ProdTag::getSeq)
+        );
+        return Result.ok(list);
     }
 
 }

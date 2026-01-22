@@ -2,14 +2,19 @@ package cn.lazyking.power.controller;
 
 import cn.lazyking.power.constants.BusinessStatus;
 import cn.lazyking.power.domain.ProdProp;
+import cn.lazyking.power.domain.ProdPropValue;
 import cn.lazyking.power.model.Result;
 import cn.lazyking.power.service.impl.ProdPropService;
+import cn.lazyking.power.service.impl.ProdPropValueService;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @Api(tags = "商品规格接口管理")
@@ -18,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 public class ProdSpecController {
 
     private final ProdPropService prodPropService;
+    private final ProdPropValueService prodPropValueService;
 
     @ApiOperation("多条件分页查询商品规格")
     @GetMapping("page")
@@ -54,5 +60,26 @@ public class ProdSpecController {
         boolean flag = prodPropService.removeProdProp(propId);
         return flag ? Result.ok(null) : Result.fail(BusinessStatus.OPERATION_FAIL);
     }
+
+    @ApiOperation("查询商品属性列表")
+    @GetMapping("list")
+    @PreAuthorize("hasAuthority('prod:spec:page')")
+    public Result<List<ProdProp>> loadProdPropList() {
+        List<ProdProp> list = prodPropService.list(new LambdaQueryWrapper<ProdProp>()
+                .orderByDesc(ProdProp::getPropId)
+        );
+        return Result.ok(list);
+    }
+
+    @ApiOperation("根据商品属性标识查询属性值集合")
+    @GetMapping("listSpecValue/{propId}")
+    @PreAuthorize("hasAuthority('prod:spec:page')")
+    public Result<List<ProdPropValue>> loadProdPropValues(@PathVariable Long propId) {
+        List<ProdPropValue> list = prodPropValueService.list(new LambdaQueryWrapper<ProdPropValue>()
+                .eq(ProdPropValue::getPropId, propId)
+        );
+        return Result.ok(list);
+    }
+
 
 }
